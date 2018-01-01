@@ -3,13 +3,13 @@ version: '3.3'
 
 services:
 
-  mysql-5.7.20:
-    container_name: mysql-5.7.20
+  mysql-8.0.2:
+    container_name: mysql-8.0.2
     build:
-      context: ./services/mysql/5.7
-    image: mysql:5.7.20-alpine
+      context: ./services/mysql/8.0/alpine
+    image: mysql:8.0.2-alpine
     volumes:
-      - ./services/mysql/5.7/config:/etc/mysql
+      - ./services/mysql/8.0/config:/etc/mysql
       - ./volumes/log/mysql:/var/log/mysql
       - ./volumes/data/mysql:/var/lib/mysql
     environment:
