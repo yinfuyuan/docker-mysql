@@ -16,6 +16,7 @@ RUN set -x; \
         g++ \
         gcc \
         libedit-dev \
+        rpcgen \
         make \
         pwgen \
         openssl \
@@ -53,5 +54,5 @@ RUN set -x; \
     apk del .build-deps; \
     rm -rf /tmp/* /var/cache/apk/*
 
-EXPOSE 3306
-CMD ["mysqld"]
+#EXPOSE 3306
+#CMD ["mysqld"]
