@@ -20,20 +20,18 @@ ENV MYSQL_DOWNLOAD_URL="http://cdn.mysql.com/Downloads/MySQL-${MYSQL_MAJOR}/mysq
 RUN set -x; \
     \
 	apk add --no-cache --virtual .build-deps \
-        cmake \
-        curl \
-        g++ \
+	    boost-dev \
+	    cmake \
+	    g++ \
         gcc \
         gnupg \
         libaio-dev \
         libc-dev \
         libedit-dev \
         linux-headers \
+        rpcgen \
         make \
         perl \
-        rpcgen \
-        libtirpc \
-        ncurses \
         pwgen; \
     \
     wget -O mysql-${MYSQL_VERSION}.tar.gz "${MYSQL_DOWNLOAD_URL}"; \
@@ -47,7 +45,8 @@ RUN set -x; \
     rm mysql-${MYSQL_VERSION}.tar.gz; \
     \
     cd /usr/src/mysql-${MYSQL_VERSION}; \
-    cmake . -DBUILD_CONFIG=mysql_release \
+    cmake . \
+        -DBUILD_CONFIG=mysql_release \
         -DWITH_BOOST=/usr/local \
         -DDOWNLOAD_BOOST=1; \
     \
