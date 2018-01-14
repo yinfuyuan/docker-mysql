@@ -32,7 +32,7 @@ RUN set -x; \
         make \
         perl \
         rpcgen \
-        libtirpc \
+        portablexdr-dev \
         ncurses \
         pwgen; \
     \
