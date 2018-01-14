@@ -33,6 +33,7 @@ RUN set -x; \
         perl \
         rpcgen \
         portablexdr-dev \
+        bsd-compat-headers \
         ncurses \
         pwgen; \
     \
@@ -53,7 +54,7 @@ RUN set -x; \
     \
     make; \
     make install; \
-    rm -r /usr/src/mysql; \
+#    rm -r /usr/src/mysql; \
 #    \
 #    apk del .build-deps
 
